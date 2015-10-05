@@ -34,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         btnMulti = (Button) findViewById(R.id.btnMulti);
         txtResults = (TextView) findViewById(R.id.txtResult);
 
+        /**
+         * When you click on the + btn this will add the numbers enter from operand1 and operand2
+         * @returns value
+         */
         btnAdd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -41,6 +45,22 @@ public class MainActivity extends AppCompatActivity {
                 double oper2 = Double.parseDouble(operand2.getText().toString());//converts number from field 2 to a string32
 
                 double theResult = oper1 + oper2;//add the # from oper1 to # from oper2
+                txtResults.setText(Double.toString(theResult));//Shows the results and converts value to a string
+
+            }
+
+        });
+        /**
+         * When you click on the - btn this will subtract the numbers enter from operand1 and operand2
+         * @returns value
+         */
+        btnSub.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                double oper1 = Double.parseDouble(operand1.getText().toString());//coverts number from field 1 to a string
+                double oper2 = Double.parseDouble(operand2.getText().toString());//converts number from field 2 to a string32
+
+                double theResult = oper1 - oper2;//add the # from oper1 to # from oper2
                 txtResults.setText(Double.toString(theResult));//Shows the results and converts value to a string
 
             }
