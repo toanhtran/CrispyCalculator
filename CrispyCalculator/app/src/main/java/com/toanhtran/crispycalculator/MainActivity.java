@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnDiv;// Division button that divides numbers
     private Button btnMulti;//Multiplication button that multiplies numbers
     private TextView txtResults;//Shows result of calculated numbers
+    private Button btnClr;//Clear txt result field
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btnDiv = (Button) findViewById(R.id.btnDiv);
         btnMulti = (Button) findViewById(R.id.btnMulti);
         txtResults = (TextView) findViewById(R.id.txtResult);
+        btnClr = (Button) findViewById(R.id.btnClr);
 
         /**
          * When you click on the + btn this will add the numbers enter from operand1 and operand2
@@ -41,11 +44,15 @@ public class MainActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                double oper1 = Double.parseDouble(operand1.getText().toString());//coverts number from field 1 to a string
-                double oper2 = Double.parseDouble(operand2.getText().toString());//converts number from field 2 to a string32
+                if((operand1.getText().length()>0) && (operand2.getText().length()>0)) {
+                    double oper1 = Double.parseDouble(operand1.getText().toString());//coverts number from field 1 to a string
+                    double oper2 = Double.parseDouble(operand2.getText().toString());//converts number from field 2 to a string32
 
-                double theResult = oper1 + oper2;//add the # from oper1 to # from oper2
-                txtResults.setText(Double.toString(theResult));//Shows the results and converts value to a string
+                    double theResult = oper1 + oper2;//add the # from oper1 to # from oper2
+                    txtResults.setText(Double.toString(theResult));//Shows the results and converts value to a string
+                } else {
+                    Toast.makeText(MainActivity.this, "Please enter numbers in both fields", Toast.LENGTH_LONG).show();
+                }
 
             }
 
@@ -57,11 +64,17 @@ public class MainActivity extends AppCompatActivity {
         btnSub.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                double oper1 = Double.parseDouble(operand1.getText().toString());//coverts number from field 1 to a string
-                double oper2 = Double.parseDouble(operand2.getText().toString());//converts number from field 2 to a string32
+                if((operand1.getText().length()>0) && (operand2.getText().length()>0)) {
 
-                double theResult = oper1 - oper2;//Subtract the # from oper1 to # from oper2
-                txtResults.setText(Double.toString(theResult));//Shows the results and converts value to a string
+                    double oper1 = Double.parseDouble(operand1.getText().toString());//coverts number from field 1 to a string
+                    double oper2 = Double.parseDouble(operand2.getText().toString());//converts number from field 2 to a string32
+
+                    double theResult = oper1 - oper2;//Subtract the # from oper1 to # from oper2
+                    txtResults.setText(Double.toString(theResult));//Shows the results and converts value to a string
+                } else {
+                    Toast.makeText(MainActivity.this, "Please enter numbers in both fields", Toast.LENGTH_LONG).show();
+
+                }
 
             }
 
@@ -73,11 +86,17 @@ public class MainActivity extends AppCompatActivity {
         btnMulti.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                double oper1 = Double.parseDouble(operand1.getText().toString());//coverts number from field 1 to a string
-                double oper2 = Double.parseDouble(operand2.getText().toString());//converts number from field 2 to a string32
+                    if((operand1.getText().length()>0) && (operand2.getText().length()>0)) {
 
-                double theResult = oper1 * oper2;//mulitply the # from oper1 to # from oper2
-                txtResults.setText(Double.toString(theResult));//Shows the results and converts value to a string
+                        double oper1 = Double.parseDouble(operand1.getText().toString());//coverts number from field 1 to a string
+                        double oper2 = Double.parseDouble(operand2.getText().toString());//converts number from field 2 to a string32
+
+                        double theResult = oper1 * oper2;//mulitply the # from oper1 to # from oper2
+                        txtResults.setText(Double.toString(theResult));//Shows the results and converts value to a string
+                    } else {
+                        Toast.makeText(MainActivity.this, "Please enter numbers in both fields", Toast.LENGTH_LONG).show();
+                    }
+
 
             }
 
@@ -89,14 +108,31 @@ public class MainActivity extends AppCompatActivity {
         btnDiv.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                double oper1 = Double.parseDouble(operand1.getText().toString());//coverts number from field 1 to a string
-                double oper2 = Double.parseDouble(operand2.getText().toString());//converts number from field 2 to a string32
+                    if((operand1.getText().length()>0) && (operand2.getText().length()>0)) {
+                        double oper1 = Double.parseDouble(operand1.getText().toString());//coverts number from field 1 to a string
+                        double oper2 = Double.parseDouble(operand2.getText().toString());//converts number from field 2 to a string32
 
-                double theResult = oper1 / oper2;//divides the # from oper1 to # from oper2
-                txtResults.setText(Double.toString(theResult));//Shows the results and converts value to a string
+                        double theResult = oper1 / oper2;//Divides the # from oper1 to # from oper2
+                        txtResults.setText(Double.toString(theResult));//Shows the results and converts value to a string
+                    } else {
+                        Toast.makeText(MainActivity.this, "Please enter numbers in both fields", Toast.LENGTH_LONG).show();
+                    }
 
             }
 
+        });
+        /**
+         * Clear button reset both text fields to empty
+         * brings cursor to first operant1 field
+         */
+        btnClr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                operand1.setText("");//Sets operand field 1 to empty
+                operand2.setText("");//Set s operand field 2 to empty
+                txtResults.setText("0.00");//Reset txtResults field to 0.00
+                operand1.requestFocus();//bring cursor focus to operand1
+            }
         });
 
 

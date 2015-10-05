@@ -94,6 +94,17 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             style="?android:attr/buttonStyleSmall"/>
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:text="@string/clear_button"
+            android:id="@+id/btnClr" />
     </LinearLayout>
 
     <TextView
