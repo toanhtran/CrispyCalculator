@@ -60,12 +60,45 @@ public class MainActivity extends AppCompatActivity {
                 double oper1 = Double.parseDouble(operand1.getText().toString());//coverts number from field 1 to a string
                 double oper2 = Double.parseDouble(operand2.getText().toString());//converts number from field 2 to a string32
 
-                double theResult = oper1 - oper2;//add the # from oper1 to # from oper2
+                double theResult = oper1 - oper2;//Subtract the # from oper1 to # from oper2
                 txtResults.setText(Double.toString(theResult));//Shows the results and converts value to a string
 
             }
 
         });
+        /**
+         * When you click on the / btn this will divide the numbers enter from operand1 and operand2
+         * @returns value
+         */
+        btnMulti.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                double oper1 = Double.parseDouble(operand1.getText().toString());//coverts number from field 1 to a string
+                double oper2 = Double.parseDouble(operand2.getText().toString());//converts number from field 2 to a string32
+
+                double theResult = oper1 * oper2;//mulitply the # from oper1 to # from oper2
+                txtResults.setText(Double.toString(theResult));//Shows the results and converts value to a string
+
+            }
+
+        });
+        /**
+         * When you click on the / btn this will divide the numbers enter from operand1 and operand2
+         * @returns value
+         */
+        btnDiv.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                double oper1 = Double.parseDouble(operand1.getText().toString());//coverts number from field 1 to a string
+                double oper2 = Double.parseDouble(operand2.getText().toString());//converts number from field 2 to a string32
+
+                double theResult = oper1 / oper2;//divides the # from oper1 to # from oper2
+                txtResults.setText(Double.toString(theResult));//Shows the results and converts value to a string
+
+            }
+
+        });
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
